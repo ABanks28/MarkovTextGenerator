@@ -35,11 +35,20 @@ namespace MarkovTextGenerator
         //  AddPair("is", "on")
         //  AddPair("on", "fire")
         //  AddPair("fire", "")
-
-        public void AddString (String sentence)
+        // Its everyday bro with that disney channel flow.
+        public void AddString (string sentence)
         {
-            // TODO: Break sentence up into word pairs
-            // TODO: Add each word pair to the chain
+            string[] falaffel = sentence.Split(' ');
+                
+            for (int i = 0; i < falaffel.Length; i++)
+            {
+                if (falaffel[i + 1] == null)
+                {
+                    AddPair(falaffel[i], "");
+                }
+                else AddPair(falaffel[i], falaffel[i + 1]);
+
+            }
         }
 
         // Adds a pair of words to the chain that will appear in order
@@ -79,7 +88,7 @@ namespace MarkovTextGenerator
             {
                 double choice = 1.0 / (double)rand.Next(100000);
 
-                Console.WriteLine("I picked the number " + choice); 
+                Console.WriteLine("Random word: " + ); 
             }
 
             return "idkbbq";
